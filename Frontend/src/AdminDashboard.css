@@ -854,57 +854,95 @@
   }
 
   .admin-sidebar {
-    position: static;
+    position: sticky;
+    top: 68px;
+    z-index: 20;
+    display: grid;
     flex: none;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand account"
+      "nav nav";
+    align-items: center;
+    gap: 0.55rem 0.75rem;
     height: auto;
     min-height: auto;
-    overflow: visible;
-    padding: 0.85rem 1rem;
+    overflow: hidden;
+    padding: 0.65rem 0.85rem 0.55rem;
     border-right: 0;
     border-bottom: 1px solid var(--admin-border);
+    box-shadow: 0 8px 22px rgba(48, 34, 57, 0.08);
+  }
+
+  .admin-sidebar > div:first-child {
+    display: contents;
   }
 
   .admin-logo-area {
-    padding: 0.2rem 0.25rem 0.8rem;
+    grid-area: brand;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .admin-logo-icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .admin-sidebar-footer {
+    position: static;
+    grid-area: account;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .admin-user-info {
+    display: none;
+  }
+
+  .admin-logout-btn {
+    width: auto;
+    min-height: 42px;
+    padding: 0.55rem 0.7rem;
+    white-space: nowrap;
   }
 
   .admin-nav-menu {
+    grid-area: nav;
     display: flex;
+    min-width: 0;
+    gap: 0.4rem;
     overflow-x: auto;
-    padding-bottom: 0.15rem;
+    padding: 0 0 0.1rem;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .admin-nav-menu > div {
+    display: none;
   }
 
   .admin-nav-btn {
     flex: 0 0 auto;
     width: auto;
-    white-space: nowrap;
-  }
-
-  .admin-sidebar-footer {
-    position: fixed;
-    z-index: 999;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.8rem;
-    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
-    margin: 0;
-    border: 1px solid var(--admin-border);
-    border-bottom: 0;
-    background: var(--admin-surface);
-    box-shadow: 0 -8px 24px rgba(48, 34, 57, 0.1);
-  }
-
-  .admin-user-info {
-    min-width: 0;
-    margin: 0;
-  }
-
-  .admin-logout-btn {
-    width: auto;
+    min-height: 42px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 999px;
     white-space: nowrap;
   }
 
@@ -918,7 +956,7 @@
   }
 
   .admin-main-content {
-    padding-bottom: 82px;
+    padding-bottom: 1rem;
   }
 
   .stats-grid-container {
@@ -930,17 +968,28 @@
   }
 
   .statistics-summary {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.7rem;
   }
 
   .institutions-grid-cards {
     grid-template-columns: 1fr;
   }
+
+  .admin-data-table {
+    min-width: 620px;
+  }
+
+  .table-responsive {
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @media (max-width: 520px) {
   .metrics-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.7rem;
   }
 
@@ -950,10 +999,23 @@
 
   .admin-header-bar {
     flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.9rem 0.85rem;
+  }
+
+  .admin-header-title {
+    font-size: 1.1rem;
+    line-height: 1.35;
+  }
+
+  .admin-header-subtitle {
+    font-size: 0.8rem;
   }
 
   .admin-server-status {
     align-self: flex-start;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.72rem;
   }
 
   .admin-filters-bar {
@@ -968,6 +1030,15 @@
   .admin-data-table th,
   .admin-data-table td {
     padding: 0.7rem;
+  }
+
+  .admin-body-container {
+    padding: 0.75rem;
+  }
+
+  .admin-card-section {
+    padding: 0.85rem;
+    border-radius: 14px;
   }
 
   .modal-buttons-row {
