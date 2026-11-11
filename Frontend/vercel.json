@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://nebularoto.onrender.com/api/$1"
+      "destination": "https://nebula-oetw.onrender.com/api/$1"
     }
   ]
 }

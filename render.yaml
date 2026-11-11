@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: nebularoto
+    name: nebula-oetw
     runtime: node
     plan: free
     rootDir: Backend
