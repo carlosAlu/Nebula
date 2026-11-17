@@ -55,18 +55,18 @@ function IA() {
 
 				chat = createChat({
 					// El webhook recibe los mensajes; no enviar datos personales al asistente.
-					webhookUrl: 'https://cjimenez20.app.n8n.cloud/webhook/908960a5-4aed-422f-8752-6851ecefd2d1/chat',
+					webhookUrl: 'https://nebulaiauabcs.app.n8n.cloud/webhook/c22b4789-f484-4e9f-ab19-aa85c14728e2/chat',
 					target: '#nebula-ai-chat',
 					mode: 'fullscreen',
 					defaultLanguage: 'es',
-					initialMessages: ['¡Hola! Me llamo Kara. Estoy aquí para escucharte.'],
+					initialMessages: ['Hola, soy Kara. Aquí puedes hablar con calma, sin juicios. ¿Cómo estás hoy?'],
 					i18n: {
 						es: {
-							title: 'Asistente virtual AI',
-							subtitle: 'Estoy aquí para ayudarte',
-							inputPlaceholder: 'Escribe tu pregunta...',
-							getStarted: 'Nueva conversación',
+							title: 'Kara',
+							subtitle: 'Un espacio seguro para platicar',
 							footer: '',
+							getStarted: 'Nueva conversación',
+							inputPlaceholder: 'Escribe lo que sientes...',
 						},
 					},
 				})
